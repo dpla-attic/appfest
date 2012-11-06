@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Using jQuery with the DPLA</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>	
+
+  <script>
+    $(document).ready(function () {
+        var url = "http://46.dpla.berkman.temphost.net:9046/api/v1/items?callback=jsPhunktion&temporal.before=1955-07-15";
+        $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            success: function (data) {
+                $.each(data.docs, function (i, item) {
+                    var element = item._source.title;
+                    var container = '<br>' + element + '<br>';
+                    $(container).appendTo('#results');
+                })
+            }
+        });
+    });
+  </script>
+
+</head>
+<body>
+	<h1>Using jQuery with the DPLA</h1>
+	<div id="results">results</div>
+</body>
+</html>
