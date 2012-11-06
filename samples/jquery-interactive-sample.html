@@ -19,7 +19,7 @@ jQuery(document).ready(function ($) {
         var submit = $searchForm.find('[type="submit"]').attr("disabled", "disabled"),
             params = $searchForm.serialize(),
             $results = $("#results").empty();
-        var url = "http://46.dpla.berkman.temphost.net:9046/api/v1/items?" + params + "&callback=?";
+        var url = "http://api.dp.la/v1/items?" + params + "&callback=?";
         $.getJSON(url).done(function (data) {
             var output = '';
             $.each(data.docs, function (i, item) {
