@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>DPLA | API Request Builder</title>
+	<link href="includes/template.css" rel="stylesheet" type="text/css">
+	<link href="includes/jquery.css" rel="stylesheet" type="text/css"> 
+	<script src="includes/jquery_002.js" charset="utf-8" type="text/javascript"></script>
+	<script src="includes/beautify.js" charset="utf-8" type="text/javascript"></script>
+	<script src="includes/jquery.js" charset="utf-8" type="text/javascript"></script> 
+	<script src="includes/query_builder.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+	<div class="header group">     			
+        <div class="title">
+			<h2><a href="http://dp.la/">DPLA</a></h2><h2>
+			</h2><h1 class="page_title">API Request Builder</h1><h1> 
+        </h1></div><!--ending the left-column-->
+    </div><!--ending the header-->
+    
+    <div class="container group">
+        <div class="sidebar">
+			<div class="content">
+			<p><a class="link" href="https://github.com/dpla/platform/wiki">Detailed API documentation can be found here</a></p>
+				<form method="get" action="#">
+				<div class="search_pair">
+					<p>Resource Type</p>
+					<div class="form_element">
+	                    <select name="resource_type" id="resource_type">
+	                    	<option value="item" selected="selected">Item</option>
+	                    </select>
+                    </div>
+                 </div>
+                 <div class="search_pair">
+                    <p>Access Type</p>
+                    <div class="form_element">
+                    	<select id="access_type" name="access_type">
+                    		<option value="search" selected="selected">Search</option>
+                    		<option value="direct">Direct Access</option>
+                    	</select>
+                    </div>
+                 </div>
+                  <div id="dynamic_fields">
+                    <div class="search_pair">
+                      <p>
+                        Search
+                      </p>
+                      <div class="form_element">
+                        <input id="search_type" value="keyword" type="text">
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Query
+                      </p>
+                      <div class="form_element">
+                        <input id="query" type="text">
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Sort Field
+                      </p>
+                      <div class="form_element">
+                        <select id="sort_field">
+                          <option selected="selected" value="checkouts">
+                            Checkouts
+                          </option>
+                          <option value="creator">
+                            Creator
+                          </option>
+                          <option value="subject">
+                            Subject Heading
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Sort Direction
+                      </p>
+                      <div class="form_element">
+                        <select id="sort_dir">
+                          <option value="desc" selected="selected">
+                            Descending
+                          </option>
+                          <option value="asc">
+                            Ascending
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Limit
+                      </p>
+                      <div class="form_element">
+                        <input id="limit" value="5" type="text">
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Facet
+                      </p>
+                      <div class="form_element">
+                        <a id="facet" href="javascript:;" class="multiSelect" name="facet"><span style="width: 105px;">Select options</span></a>
+                        <div class="multiSelectOptions" style="position: absolute; z-index: 99999; visibility: hidden; width: 128px;">
+                          <label class="selectAll"><input class="selectAll" type="checkbox">Select All</label><label><input name="facet[]" value="language" type="checkbox">Language</label><label><input name="facet[]" value="creator" type="checkbox">Creator</label><label><input name="facet[]" value="subject" type="checkbox">Subject Heading</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="search_pair">
+                      <p>
+                        Filter
+                      </p>
+                      <div class="filter_container">
+                        <div class="filter">
+                          <div class="form_element">
+                            <select>
+                              <option selected="selected" value="keyword">
+                                Keyword
+                              </option>
+                              <option value="title">
+                                Title
+                              </option>
+                              <option value="title_keyword">
+                                Title Keyword
+                              </option>
+                              <option value="creator">
+                                Creator
+                              </option>
+                              <option value="creator_keyword">
+                                Creator Keyword
+                              </option>
+                              <option value="subject">
+                                Subject Heading
+                              </option>
+                              <option value="subject_keyword">
+                                Subject Heading Keyword
+                              </option>
+                              <option value="id_isbn">
+                                ISBN
+                              </option>
+                              <option value="id_oclc">
+                                OCLC ID
+                              </option>
+                              <option value="id_lccn">
+                                LCCN ID
+                              </option>
+                            </select>
+                          </div>
+                          <div class="form_element">
+                            <input type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="add_filter">
+                        Add another filter
+                      </div>
+                    </div>
+                  </div>
+                 <div class="search_pair">
+	                 <div class="form_element">
+	               	  <input id="submit_search" name="submit_search" value="Do it, little dude" class="searchButton" type="submit">
+	                 </div>
+                 </div>
+			</form>      
+			</div>
+        </div><!--ending the left-column-->
+        
+        <div class="main">
+			<div class="content">
+				<div id="request_address">
+					<p>Request Address</p>
+					<textarea class="request_response" id="request"></textarea>
+				</div>
+				<div>
+				<p>Response</p>
+					<textarea class="request_response" id="lc_response"></textarea>
+				</div>
+			</div>
+        </div><!--ending the right-column-->
+    </div><!--ending the container-->
+    
+    <div class="footer">       
+      	 <p><a href="http://dp.la/">DPLA</a></p>
+    </div><!--ending the footer-->
+
+
+</body></html>
