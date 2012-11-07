@@ -22,9 +22,8 @@ var config = (function () {
     };
     
     my.item_sort_options = {
-		'checkouts': 'Checkouts',
-		'creator' : 'Creator',
-		'subject' : 'Subject Heading'
+		'created' : 'Created date',
+		'title' : 'Title'
     };
     
     my.item_facet_options = {
@@ -46,8 +45,8 @@ var view = (function () {
 	
     // If we have a request for a direct resource, only draw the one direct resource box
 	my.draw_direct = function() {
-		var rows = '<div class="search_pair"><p>Direct access (enter a single ID)</p>';
-		rows += '<div class="form_element"><input type="text" id="direct_access"/></div></div>';
+		var rows = '<div class="search_pair"><p>Direct access (enter one or more comma-separated ids)</p>';
+		rows += '<div class="form_element"><input type="text" id="direct_accessss"/></div></div>';
 		
 		$('#dynamic_fields').html(rows);
 	}
@@ -84,12 +83,14 @@ var view = (function () {
         // rows += '<div class="form_element"><input type="text" id="search_type" value="keyword"/></div></div>';
 		rows += '<div class="search_pair"><p>Query</p>';
 		rows += '<div class="form_element"><input type="text" id="query"/></div></div>';
-        // rows += '<div class="search_pair"><p>Sort Field</p>';
-        // rows += '<div class="form_element"><select id="sort_field">' + option_sort_string + '</select></div></div>';
-        // rows += '<div class="search_pair"><p>Sort Direction</p>';
-        // rows += '<div class="form_element"><select id="sort_dir"><option value="desc" selected="selected">Descending</option><option value="asc">Ascending</option></select></div></div>';
-        // rows += '<div class="search_pair"><p>Limit</p>';
-        // rows += '<div class="form_element"><input type="text" id="limit" value="5"/></div></div>';
+        rows += '<div class="search_pair"><p>Sort Field</p>';
+        rows += '<div class="form_element"><select id="sort_by">' + option_sort_string + '</select></div></div>';
+        rows += '<div class="search_pair"><p>Sort Direction</p>';
+        rows += '<div class="form_element"><select id="sort_order"><option value="desc" selected="selected">Descending</option><option value="asc">Ascending</option></select></div></div>';
+        rows += '<div class="search_pair"><p>Page Size</p>';
+        rows += '<div class="form_element"><input type="text" id="limit" value=""/></div></div>';
+        rows += '<div class="search_pair"><p>Page Number</p>';
+        rows += '<div class="form_element"><input type="text" id="page" value=""/></div></div>';
         // rows += '<div class="search_pair"><p>Facet</p>';
         // rows += '<div class="form_element"><select id="facet" multiple="multiple">' + option_facet_string + '</select></div></div>';
 		rows += '<div class="search_pair"><p>Filter</p>';
@@ -142,8 +143,12 @@ var exec_form = (function () {
 	exec_search = function() {
 		var request_string = get_base();
 		request_string += '?q=' + $('#query').val();
-        // request_string += '&sort=' + $('#sort_field').val() + ' ' + $('#sort_dir').val();
-        // request_string += '&limit=' + $('#limit').val();
+		if ($('#sort_by').val())
+            request_string += '&sort_by=' + $('#sort_by').val() + '&sort_order=' + $('#sort_order').val();
+        if ($('#limit').val())
+            request_string += '&page_size=' + $('#limit').val();
+        if ($('#page').val())
+            request_string += '&page=' + $('#page').val();
 		
 		// Bulid list of facet params
 		var facets = new Array();
