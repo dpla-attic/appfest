@@ -10,7 +10,7 @@
     	    // Our DPLA API URL.
     	    // Search the keyword field for the term 'deadly'
 
-	   $url = 'http://api.dp.la/v1/items/?q=habits';
+	   $url = 'http://api.dp.la/v1/items/?q=deadly';
 
             // Use cURL to GET data from the API
     	    $ch = curl_init($url);            
@@ -27,9 +27,20 @@
                 echo "<div style='margin-left: 12px; background-color: #EEE; padding: 5px;'>";
      
                 foreach ( $json_output->docs as $doc ) {
-                    echo "\n<h3><a href=\"{$doc->source}\">{$doc->title}</a></h3>";
-	            echo "\n<div>{$doc->description}</div>";
-	            //echo "\n<div>{$doc->description}</div>";
+	            // if we have a source url, add a link.
+	            if ( ! empty($doc->source)){
+                       echo "\n<h3><a href=\"{$doc->source}\">{$doc->title}</a></h3>";
+	            } else {
+	               echo "\n<h3>{$doc->title}</h3>";
+	            }
+                    // description can be either string or array.
+	            $descriptions = $doc->description;
+	            if ( ! is_array($descriptions )) {
+	                $descriptions = array( $descriptions );
+	            }
+	            foreach ( $descriptions as $description) {
+	               echo "\n<div>{$description}</div>";
+	            }
                 }
                 echo "</div>";
             }
