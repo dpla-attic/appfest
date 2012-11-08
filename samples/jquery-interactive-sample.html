@@ -22,6 +22,8 @@ jQuery(document).ready(function ($) {
         var url = "http://api.dp.la/v1/items?" + params + "&callback=?";
         $.getJSON(url).done(function (data) {
             var output = '';
+            var numResults = (data.count) ? data.count : 0;
+            output += '<strong>' + numResults + '</strong> results found:<br />';
             $.each(data.docs, function (i, item) {
                 output += '<div class="result"><h2>Result ' + (i + 1) + '</h2><div><em>' + item.title + '</em></div> <div>' + item.description + '</div></div>';
             });
