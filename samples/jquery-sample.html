@@ -13,7 +13,7 @@
             dataType: 'jsonp',
             success: function (data) {
                 $.each(data.docs, function (i, item) {
-                    var element = item._source.title;
+                    var element = item.title;
                     var container = '<br>' + element + '<br>';
                     $(container).appendTo('#results');
                 })
@@ -25,6 +25,6 @@
 </head>
 <body>
 	<h1>Using jQuery with the DPLA</h1>
-	<div id="results">results</div>
+	<div id="results">Results:</div>
 </body>
 </html>

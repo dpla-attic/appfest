@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
         $.getJSON(url).done(function (data) {
             var output = '';
             $.each(data.docs, function (i, item) {
-                output += '<div class="result"><h2>Result ' + (i + 1) + '</h2><div><em>' + item._source.title + '</em></div> <div>' + item._source.description + '</div></div>';
+                output += '<div class="result"><h2>Result ' + (i + 1) + '</h2><div><em>' + item.title + '</em></div> <div>' + item.description + '</div></div>';
             });
             $results.append(output);
             $searchForm[0].reset();
