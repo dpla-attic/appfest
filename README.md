@@ -13,7 +13,7 @@ Information about the DPLA Appfest on November 8 and 9th, 2012 in Chattanooga, T
 * Sample javascript and PHP code is in the `samples` directory
 * Javascript query builder is in the `querybuilder` directory
 
-## The Data
+## The Data (as of 2012-11-09)
 
 The repository contains data from the following sources:
 
@@ -23,3 +23,9 @@ The repository contains data from the following sources:
   * University of South Carolina : 128,000 records
 * [Minnesota Digital Library](http://reflections.mndigital.org/) : 134,000 records
 * [Digital Library of Georgia](http://dlg.galileo.usg.edu/) : 450,000 records
+
+Summarizations of the data along a few dimensions:
+
+* Number of records in the repository, by contributor : https://gist.github.com/4046494
+* Number of records in the repository, by collection: https://gist.github.com/4046626
+* All records with geolocation data (coordinates) : https://github.com/mistydemeo/geodata
