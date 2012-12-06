@@ -30,7 +30,7 @@ Summarizations of the data along a few dimensions:
 * Number of records in the repository, by collection: https://gist.github.com/4046626
 * All records with geolocation data (coordinates) : https://github.com/mistydemeo/geodata
 
-Some previous Appfest projects
+## Some previous Appfest projects
 
 * Records from the DPLA API containing geolocation data : https://github.com/mistydemeo/dpla-geodata
 * https://github.com/jdcc/dpla-dedupe
