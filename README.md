@@ -1,7 +1,7 @@
 appfest
 =======
 
-Information about the DPLA Appfest on November 8 and 9th, 2012 in Chattanooga, TN
+Information for DPLA Appfests
 
 ## Related Links
 
@@ -29,3 +29,11 @@ Summarizations of the data along a few dimensions:
 * Number of records in the repository, by contributor : https://gist.github.com/4046494
 * Number of records in the repository, by collection: https://gist.github.com/4046626
 * All records with geolocation data (coordinates) : https://github.com/mistydemeo/geodata
+
+Some previous Appfest projects
+
+* Records from the DPLA API containing geolocation data : https://github.com/mistydemeo/dpla-geodata
+* https://github.com/jdcc/dpla-dedupe
+* Simple ruby gem interface to the DPLA API : https://github.com/mistydemeo/ruby-dpla
+* Drupal Integration : https://github.com/ruebot/dpla-appfest-drupal
+* https://github.com/jblyberg/dpla
