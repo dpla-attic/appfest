@@ -13,22 +13,13 @@ Information for DPLA Appfests
 * Sample javascript and PHP code is in the `samples` directory
 * Javascript query builder is in the `querybuilder` directory
 
-## The Data (as of 2012-11-09)
+## The Data (as of 203-02-11)
 
 The repository contains data from the following sources:
 
 * [South Carolina Digital Library](http://www.scmemory.org/index.php)
-  * Clemson University : 2,000 records
-  * College of Charleston : 17,000 records
-  * University of South Carolina : 128,000 records
-* [Minnesota Digital Library](http://reflections.mndigital.org/) : 134,000 records
-* [Digital Library of Georgia](http://dlg.galileo.usg.edu/) : 450,000 records
-
-Summarizations of the data along a few dimensions:
-
-* Number of records in the repository, by contributor : https://gist.github.com/4046494
-* Number of records in the repository, by collection: https://gist.github.com/4046626
-* All records with geolocation data (coordinates) : https://github.com/mistydemeo/geodata
+* [Minnesota Digital Library](http://reflections.mndigital.org/)
+* [Biodiversity Heritage Library](http://www.biodiversitylibrary.org)
 
 ## Some previous Appfest projects
 
