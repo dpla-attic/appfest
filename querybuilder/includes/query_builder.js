@@ -4,36 +4,36 @@ $(document).ready(function() {
 var config = (function () { 
     var my = {};
 	
-    my.request_location = 'http://api.dp.la/v1/';
+    my.request_location = 'http://api.dp.la/dev/';
     my.key = 'd41d8cd98f00b204e980';
     
     my.item_options = {
             // 'keyword' : 'Keyword',
-    		'title' : 'Title',
-            'subject' : 'Subject',
-            'description' : 'Description',
-            'temporal.after' : 'Date After',
-            'temporal.before' : 'Date Before',
-            'spatial' : 'Location',
-            'spatial.coordinates' : 'Near Lat/Long',
-            'publisher' : 'Publisher',
-            'type' : 'Type',
-            'format' : 'Format'
+    		'aggregatedCHO.title' : 'Title',
+            'aggregatedCHO.subject' : 'Subject',
+            'aggregatedCHO.description' : 'Description',
+            'aggregatedCHO.date.after' : 'Date After',
+            'aggregatedCHO.date.before' : 'Date Before',
+            'aggregatedCHO.spatial' : 'Location',
+            'aggregatedCHO.spatial.coordinates' : 'Near Lat/Long',
+            'aggregatedCHO.publisher' : 'Publisher',
+            'aggregatedCHO.type' : 'Type',
+            'isShownAt.format' : 'Format'
     };
     
     my.item_sort_options = {
-		'created' : 'Created date',
-		'title' : 'Title'
+		'aggregatedCHO.date.begin' : 'Created date',
+		'aggregatedCHO.title' : 'Title'
     };
     
     my.item_facet_options = {
-    		'language' : 'Language',
-    		'creator' : 'Creator',
-    		'subject' : 'Subject Heading'
+    		'aggregatedCHO.language' : 'Language',
+    		'aggregatedCHO.creator' : 'Creator',
+    		'aggregatedCHO.subject' : 'Subject Heading'
     };
     
     my.event_options = {
-    		'date' : 'Date'
+    		'aggregatedCHO.date' : 'Date'
     };
     
     return my; 
@@ -46,7 +46,7 @@ var view = (function () {
     // If we have a request for a direct resource, only draw the one direct resource box
 	my.draw_direct = function() {
 		var rows = '<div class="search_pair"><p>Direct access (enter one or more comma-separated ids)</p>';
-		rows += '<div class="form_element"><input type="text" id="direct_accessss"/></div></div>';
+		rows += '<div class="form_element"><input type="text" id="direct_access"/></div></div>';
 		
 		$('#dynamic_fields').html(rows);
 	}
